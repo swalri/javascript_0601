@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		const data = [10,20,30,40,50,60,70,80,90,100];
+		const filterArr01 = (value, index) => {
+			console.log(`index : ${index}, value : ${value}`);
+			return value >= 50;
+		}
+		document.write("필터전 데이터 : "+data+"<hr>");
+		
+		const fdata01 = data.filter(filterArr01);
+		document.write(fdata01+"<hr>");
+		
+		document.write("필터전 데이터 : "+data+"<hr>");
+		const d2 = data.filter((value)=>{
+				return value != 50;	
+				});
+		//const d2 = data.filter((v)=>{v==50;})
+		document.write(d2+"<hr>")
+	</script>
+</body>
+</html>

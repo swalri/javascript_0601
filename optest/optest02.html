@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.ms {
+	width: 300px;
+	height: 300px;
+}
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+		var list = ["../images/최근상품01.jpg",
+			"../images/최근상품02.jpg",
+			"../images/최근상품03.jpg",
+			"../images/최근상품04.jpg",
+			"../images/최근상품05.jpg",
+			"../images/최근상품06.jpg",
+			"../images/최근상품07.jpg",
+			"../images/최근상품08.jpg"];
+		let i = 0;//사진위치
+		var e;
+		
+		window.onload = () =>{
+			const img = document.querySelector("#myImage01");
+			img.innerHTML = `<img src="${list[i]}" class="ms">`;
+			move();//처음시작
+			start = document.querySelector("#myImage01");
+			start.addEventListener("mouseout", move);
+			start.addEventListener("mouseover", stop);
+		};
+		
+		const move = () => {
+			e = setInterval(start01,1000);
+		}
+		const stop = () => {
+			clearInterval(e);
+		}
+		const start01 = () => {
+			var d = new Date();
+			(i>6)? i=0:i++;
+			const img = document.querySelector("#myImage01");
+			img.innerHTML = `<img src="${list[i]}" class="ms">`;
+			console.log(i);
+		}
+	</script>
+	<div id="myImage01"></div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		const data = [111,222,333];//배열
+		/**item = 값, index = 배열번호*/
+		function printArr(item,index){
+			document.write(`배열 데이터 ${index} = ${item}<br>`);
+		}
+		//대입 출력
+		data.forEach(printArr);//return이 없다, 단순출력
+		
+		document.write(`=== foreach ===<br>`)
+		data.forEach((item,index)=>{//바로 함수 호출, 일회성을 가진다
+			document.write(`배열 데이터 ${index} = ${item}<br>`);
+		})
+
+		document.write(`===========<br>`)
+		//const data = [111,222,333];//배열
+		/**배열값을 전부 출력*/
+		const mapArr = (value) => {
+			return `<b style="color:red;">${value}</b>`;
+		}
+		const mapArr2 = (value) => `<b style="color:blue;">${value}</b>`;
+		
+		const mapData = data.map(mapArr);
+		const mapArr22 = data.map(
+					(value) => `<b style="color:blue;">${value}</b>`
+				);
+		document.write(mapData);
+		document.write(`<br>===========<br>`)
+		document.write(mapArr22);
+	</script>
+</body>
+</html>

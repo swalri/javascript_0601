@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let kdata = [ '서울', "부산" ];
+
+		document.write("기본 배열 : " + kdata + "<br>");
+
+		kdata.push("인천", "세종");//값 추가
+		document.write("push 배열 : " + kdata + "<br>");
+
+		kdata.pop();//값 삭제
+		document.write("pop 배열 : " + kdata + "<br>");
+
+		kdata.unshift("111", "222");//앞쪽에 값을 추가
+		document.write("unshift 배열 : " + kdata + "<br>");
+
+		kdata.shift();//앞쪽에 있는 값을 삭제
+		document.write("shift 배열 : " + kdata + "<br>");
+
+		var d = kdata.concat("추가", "데이터");
+		document.write("concat 배열 kdata : " + kdata + "<br>");
+		document.write("concat 배열 d : " + d + "<br>");
+	</script>
+
+</body>
+</html>

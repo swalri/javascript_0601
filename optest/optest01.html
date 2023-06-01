@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let userInfo = [ {
+			id : "aaa",//아이디
+			name : "kim",//이름
+			age : 20
+		//나이
+		}, {
+			"id" : "bbb",
+			"name" : "gim",
+			"age" : 30
+		}, {
+			id : "ccc",
+			name : "kam",
+			age : 40
+		} ];
+		
+		window.onload = () =>{
+			document.querySelector(".test").innerHTML = `<h2>목록을 보여줍니다</h2>`;
+		}
+		/**모든 회원 조회*/
+		const member_all = () => {
+			const div_table = document.querySelector(".test");
+			let msg = `<table border='1'>
+							<tr>
+								<th>아이디</th>
+								<th>이름</th>
+								<th>나이</th>
+				   			</tr>`;
+			for(let i=0;i<userInfo.length;i++){
+				 msg +=`<tr>
+							<td>${userInfo[i].id}</td>
+							<td onclick="${i}">${userInfo[i].name}</td>
+							<td>${userInfo[i].age}</td>
+					   </tr>`
+			}
+			msg += "</table>";
+			div_table.innerHTML = msg;
+		}
+		/**특정 회원 조회*/
+		const member_s = () =>{
+			const div_tr = document.querySelector(".test");
+			const id_s = document.querySelector("#id_s");
+			let msg = `<table border='1'>
+				<tr>
+					<th>아이디</th>
+					<th>이름</th>
+					<th>나이</th>
+	   			</tr>`;
+			for(let i=0;i<userInfo.length;i++){
+				if(userInfo[i].id == id_s.value){
+					msg += `<tr>
+								<td>${userInfo[i].id}</td>
+								<td onclick="${i}">${userInfo[i].name}</td>
+								<td>${userInfo[i].age}</td>
+							</tr>`;
+				}
+			}
+			div_tr.innerHTML = msg;
+		}
+		/**특정 회원 삭제*/
+		const member_d = () =>{
+			const div_tr = document.querySelector(".test");
+			const id_s = document.querySelector("#id_d");
+			let msg = `<table border='1'>
+				<tr>
+					<th>아이디</th>
+					<th>이름</th>
+					<th>나이</th>
+	   			</tr>`;
+			userInfo = userInfo.filter((value)=> value.id != id_s.value);
+			console.log(userInfo);
+			for(let i=0;i<userInfo.length;i++){
+				msg += `<tr>
+					<td>${userInfo[i].id}</td>
+					<td onclick="${i}">${userInfo[i].name}</td>
+					<td>${userInfo[i].age}</td>
+				</tr>`;
+			}
+			msg += "</table>";
+			div_tr.innerHTML = msg;
+		}
+		
+	</script>
+
+	<div class="test"></div>
+	<hr>
+	<input type="button" value="모든 회원 보기" onclick="member_all()">
+	<hr>
+	<input type="text" id="id_s" placeholder="input id">
+	<br>
+	<input type="button" value="특정 회원 조회" onclick="member_s()">
+	<hr>
+	<input type="text" id="id_d" placeholder="input id">
+	<br>
+	<input type="button" value="특정 회원 삭제" onclick="member_d()">
+</body>
+</html>

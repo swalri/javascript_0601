@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var start;
+		window.onload = () =>{
+			start = document.querySelector("#start");
+			console.log("시작 : " + start);
+			start.addEventListener("click", start1);
+			start.addEventListener("click", start2);
+		}
+		
+		var e2;
+		const start2 = () => {
+			e2 = setInterval(timeStart, 1000);
+		}
+		
+		const timeStart = () => {
+			var d = new Date();
+			document.getElementById("clock2").innerHTML = d.toLocaleString();
+		}
+		
+		const start1 = () => {
+			//alert("start");
+			const today = new Date();
+			console.log(today);
+			let time = today.getMonth() +1 +"월 ";
+			time += today.getDate() + "일 ";
+			time += today.getHours() + "시 ";
+			time += today.getMinutes() + "분 ";
+			time += today.getSeconds() + "초 ";
+			document.getElementById("clock").innerHTML = time;
+			e = setTimeout(start1,1000);
+		}
+		const end = () => {
+			clearTimeout(e);
+			//alert("end");
+		}
+		
+		const end2 = () => {
+			clearInterval(e2);
+			//alert("end2");
+		}
+		
+	</script>
+
+	<div id="clock"></div>
+	<button id="start">시작</button>
+	<button onclick="end(); end2();">종료</button>
+	<div id="clock2"></div>
+
+</body>
+</html>
