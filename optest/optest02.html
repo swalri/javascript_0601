@@ -28,23 +28,20 @@
 			img.innerHTML = `<img src="${list[i]}" class="ms">`;
 			move();//처음시작
 			start = document.querySelector("#myImage01");
-			start.addEventListener("mouseout", move);
-			start.addEventListener("mouseover", stop);
+			start.addEventListener("mouseout", move);//이미지에서 빠져나올 경우
+			start.addEventListener("mouseover", stop);//이미지 위에 있을 경우
 		};
-		
-		const move = () => {
-			e = setInterval(start01,1000);
-		}
-		const stop = () => {
-			clearInterval(e);
-		}
+		//실질적 동작
 		const start01 = () => {
-			var d = new Date();
-			(i>6)? i=0:i++;
-			const img = document.querySelector("#myImage01");
-			img.innerHTML = `<img src="${list[i]}" class="ms">`;
-			console.log(i);
-		}
+			var d = new Date();//시간초기화
+			(i>6)? i=0:i++;//값 변경
+			const img = document.querySelector("#myImage01");//div 태그가져오기
+			img.innerHTML = `<img src="${list[i]}" class="ms">`;//안에 있는 이미지 변경
+			//console.log(i);//순번확인
+		}//시작
+		const move = () => e = setInterval(start01,1000);
+		//멈춤
+		const stop = () => clearInterval(e);
 	</script>
 	<div id="myImage01"></div>
 </body>
